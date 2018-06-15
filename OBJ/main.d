@@ -44,3 +44,4 @@
 ..\obj\main.o: ..\HARDWARE\TOUCH\gt9147.h
 ..\obj\main.o: ..\HARDWARE\TOUCH\ft5206.h
 ..\obj\main.o: hanzi.h
+..\obj\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h

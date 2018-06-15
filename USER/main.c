@@ -8,7 +8,7 @@
 #include "w25qxx.h"
 #include "touch.h"
 #include "hanzi.h"
-
+#include "time.h"
  
 /************************************************
  ALIENTEK精英STM32开发板实验26
@@ -69,6 +69,22 @@ int music[]=
   H3,50,H2,50,H1,100,H1,100,ZERO,50,H1,50,H2,100,H1,50,H2,25,H2,50,M7,100,M6,100,M6,100,M6,100,M6,50,M7,50
 
 };
+int length = sizeof(music)/sizeof(music[0]);//计算数组长度
+//音乐函数
+void musicst(){
+	int t=0;
+	
+	delay_init();
+    while(100)
+	{
+		for(t=0; t<(length/2); t++)
+		{  
+			Timer4_Init(music[2*t]);
+			delay_ms(5*music[2*t+1]);
+		}
+	}
+
+}
 void man(int pox,int small){
 	LCD_Draw_Circle(40+pox,200,15);
 	LCD_DrawLine(40+pox, 215, 40+pox,260);
@@ -143,6 +159,8 @@ void exercise(){
 			}
 		};
 }
+
+
 //开始菜单展示
 void start_page(){
 	fWriteHz24(GB_24[0].Msk,5+5,50,2,RED);	 
@@ -170,7 +188,7 @@ void start_page(){
 	fWriteHz24(GB_bangzhu[1].Msk,88+5,270,1,WHITE);
 	fWriteHz24(GB_bangzhu[2].Msk,121+5,270,1,WHITE);
 	fWriteHz24(GB_bangzhu[3].Msk,155+5,270,1,WHITE);
-	
+	musicst();
 }
 
 void rtp_test(void){
@@ -192,7 +210,7 @@ void rtp_test(void){
 		}
 	}
 }
-int length = sizeof(music)/sizeof(music[0]);//计算数组长度
+
 
 int main(void)
  {	 		    
@@ -208,7 +226,6 @@ int main(void)
  	POINT_COLOR=RED;//设置字体为红色 
 	LCD_Clear(BLACK);
 	start_page();
-	//musicst();
 	rtp_test();
 }
 

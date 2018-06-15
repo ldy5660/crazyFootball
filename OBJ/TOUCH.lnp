@@ -14,6 +14,7 @@
 "..\obj\ott2001a.o"
 "..\obj\ft5206.o"
 "..\obj\gt9147.o"
+"..\obj\timer.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"
@@ -25,6 +26,7 @@
 "..\obj\stm32f10x_rcc.o"
 "..\obj\stm32f10x_spi.o"
 "..\obj\stm32f10x_usart.o"
+"..\obj\stm32f10x_tim.o"
 --strict --scatter "..\OBJ\TOUCH.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
