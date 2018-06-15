@@ -114,18 +114,18 @@ void ball(int gox,int goy){
 }
 //电阻触摸屏测试函数
 void exercise(){
-	while(1){
 		int pox=20;
 		int go=0;
 		int time=100;
+		int i=0;
 		LCD_Clear(GREEN);
 		LCD_Color_Fill(0,0,240,62,WHITE);
 		
 		ball(0,0);
 		man(0,0);
 		
-		while(time--){
-			int i=0;
+		while(1){			
+			int time=10;
 			LCD_Color_Fill(0,0,240,62,WHITE);
 			door(pox);
 			if(pox>=150)go=1;
@@ -137,11 +137,11 @@ void exercise(){
 					LCD_Color_Fill(0,62,240,400,GREEN);
 					ball(0,0);
 					man(i,0);
+					time--;
+					if(time==0)break;
 				}
 			}
 		};
-	}
-	
 }
 //开始菜单展示
 void start_page(){
